@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Fedorov james.sayfer2015@yandex.ru
+﻿ // Copyright 2018 Fedorov james.sayfer2015@yandex.ru
 
 #ifndef INCLUDE_HEADER_HPP_
 #define INCLUDE_HEADER_HPP_

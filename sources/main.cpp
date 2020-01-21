@@ -27,7 +27,7 @@ int main(){
 		j_new[i]["id"] = j[1][i];
 		j_new[i]["description"] = j[2][i];}
 
-	if (j_new[0]["id"] != 100024){
+	if (j_new[0]["id"]  != 100024){
 		return 1;}
 	if (j_new[1]["ticker"] != "RTS-9.15"){
 		return 2;}
