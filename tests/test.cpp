@@ -4,7 +4,12 @@
 
 #include <header.hpp>
 
+<<<<<<< HEAD
 TEST(Json, Operato_EQ){
+=======
+TEST(Json, Operato_EQ)
+{
+>>>>>>> f68bcc9e75661087c0679ca46998fd794d5f7e7e
 	std::string str1 = "{ \"lastname\" : \"Ivanov\", \"firstname\" : \"Ivan\", ";
 	std::string str2 = "\"age\" : 25, \"islegal\" : false,";
 	std::string str3 = "\"address\" : { \"city\" : \"Moscow\", \"street\" :";
@@ -25,4 +30,9 @@ TEST(Json, Operato_EQ){
 
 	auto a = object["ad"];
 	EXPECT_EQ(static_cast<float>(1), std::any_cast<float>((std::any_cast<std::vector<std::any>>(a))[0]));
+<<<<<<< HEAD
 	EXPECT_EQ(static_cast<float>(5), std::any_cast<float>((std::any_cast<std::vector<std::any>>(a))[2]));}
+=======
+	EXPECT_EQ(static_cast<float>(5), std::any_cast<float>((std::any_cast<std::vector<std::any>>(a))[2]));
+}
+>>>>>>> f68bcc9e75661087c0679ca46998fd794d5f7e7e
