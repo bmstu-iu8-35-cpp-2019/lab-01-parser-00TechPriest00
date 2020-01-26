@@ -17,8 +17,7 @@ bool JSON::is_array() {
         return false;
     }
     else {
-        return true;
-    }
+        return true;}
 }
 
 bool JSON::is_object() {
