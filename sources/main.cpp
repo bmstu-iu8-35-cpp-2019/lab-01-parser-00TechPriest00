@@ -3,15 +3,9 @@
 #include <iostream>
 #include <string>
 
-using json = nlohmann::json;
+using json = json;
 
-setlocale(LC_ALL, "Russian");
-
-<<<<<<< HEAD
 int main(){
-=======
-int main(){
->>>>>>> f68bcc9e75661087c0679ca46998fd794d5f7e7e
     std::string str1 = "[[\"Si-9.15\", \"RTS-9.15\", \"GAZP-9.15\"], ";
     std::string str2 = "[100024, 100027, 100050],";
     std::string str3 =
@@ -22,7 +16,6 @@ int main(){
     json j = json::parse(jjson);
     size_t n = (j[0]).size();
     json j_new;
-<<<<<<< HEAD
     for (size_t i = 0; i < n; i++){
         j_new[i]["ticker"] = j[0][i];
         j_new[i]["id"] = j[1][i];
@@ -35,7 +28,6 @@ int main(){
     if (j_new[2]["description"] != "Futures contract for Gazprom shares"){
         return 3;}
     return 0;}
-=======
     for (size_t i = 0; i < n; i++)
     {
         j_new[i]["ticker"] = j[0][i];
@@ -57,4 +49,3 @@ int main(){
     }
     return 0;
 }
->>>>>>> f68bcc9e75661087c0679ca46998fd794d5f7e7e
