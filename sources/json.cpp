@@ -68,7 +68,9 @@ bool JSON::parseBool(const std::string &s, int &position) {
                 position += 1;
                 if (s[position] == 'e') {
                     result = true;
-                } else isBool = false;
+                } else {
+                    isBool = false;
+                }
             } else {
                 isBool = false;
             }
@@ -110,10 +112,11 @@ double JSON::parseNumber(const std::string &s, int &position) {
     number += s[position];
     position += 1;
     for (; position < s.size(); position++) {
-        if (iswdigit(s[position]) || s[position] == '.') {
+        if (iswdigit(s[position])|| s[position] == '.') {
             number += s[position];
         } else {
-            if (s[position] == ' ' || s[position] == ',' || s[position] == ']' || s[position] == '}') {
+            if (s[position] == ' ' || s[position] == ',' 
+                || s[position] == ']' || s[position] == '}') {
                 position -= 1;
                 return stod(number);
             } else {
