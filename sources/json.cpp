@@ -116,7 +116,7 @@ double JSON::parseNumber(const std::string &s, int &position) {
             number += s[position];
         } else {
             if (s[position] == ' ' || s[position] == ','
-                || s[position] == ']' || s[position] == '}') {
+|| s[position] == ']' || s[position] == '}') {
                 position -= 1;
                 return stod(number);
             } else {
