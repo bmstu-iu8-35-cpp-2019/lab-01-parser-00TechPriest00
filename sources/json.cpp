@@ -23,19 +23,26 @@ bool JSON::is_array() {
 bool JSON::is_object() {
     if (array.empty()) {
         return true;
-    } else return false;
+    } else {
+        return false;
+    }
 }
 
 std::any &JSON::operator[](const std::string &key) {
-    if (!is_object()) {
-        throw std::logic_error("\nNot object\n");
-    } else return object[key];
+	if (!is_object()) {
+		throw std::logic_error("\nNot object\n");
+	}
+	else {
+        return object[key];
+    }
 }
 
 std::any &JSON::operator[](int index) {
     if (!is_array()) {
         throw std::logic_error("\nNot array\n");
-    } else return array[index];
+	} else {
+		return array[index];
+    }
 }
 
 std::string JSON::parseString(const std::string &s, int &position) {
@@ -127,13 +134,17 @@ std::map<std::string, std::any> JSON::parseObject(const std::string &s, int &pos
                 result.insert(std::pair<std::string, std::any>(key, value));
                 stateObject = 3;
                 continue;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+				throw std::logic_error("\nInvalid input format\n");
+            }
         }
         if (s[position] == ':') {
             if (stateObject == 1) {
                 stateObject = 2;
                 continue;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+            throw std::logic_error("\nInvalid input format\n");
+        }
         }
         if (s[position] == '}') {
             if (stateObject == 0 or stateObject == 3) {
@@ -144,7 +155,9 @@ std::map<std::string, std::any> JSON::parseObject(const std::string &s, int &pos
             if (stateObject == 3) {
                 stateObject = 0;
                 continue;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+            throw std::logic_error("\nInvalid input format\n");
+            }
         }
         if (s[position] == '{') {
             if (stateObject == 2) {
@@ -152,7 +165,9 @@ std::map<std::string, std::any> JSON::parseObject(const std::string &s, int &pos
                 result.insert(std::pair<std::string, std::any>(key, buf));
                 stateObject = 3;
                 continue;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+            throw std::logic_error("\nInvalid input format\n");
+        }
         }
         if (s[position] == '[') {
             if (stateObject == 2) {
@@ -160,7 +175,9 @@ std::map<std::string, std::any> JSON::parseObject(const std::string &s, int &pos
                 result.insert(std::pair<std::string, std::any>(key, buf));
                 stateObject = 3;
                 continue;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+            throw std::logic_error("\nInvalid input format\n");
+            }
         }
         if (s[position] == 't' || s[position] == 'f') {
             if (stateObject == 2) {
@@ -168,7 +185,9 @@ std::map<std::string, std::any> JSON::parseObject(const std::string &s, int &pos
                 result.insert(std::pair<std::string, std::any>(key, value));
                 stateObject = 3;
                 continue;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+                throw std::logic_error("\nInvalid input format\n");
+            }
         }
         if (iswdigit(s[position])) {
             if (stateObject == 2) {
@@ -176,7 +195,9 @@ std::map<std::string, std::any> JSON::parseObject(const std::string &s, int &pos
                 result.insert(std::pair<std::string, std::any>(key, value));
                 stateObject = 3;
                 continue;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+            throw std::logic_error("\nInvalid input format\n");
+            }
         }
     }
     throw std::logic_error("\nInvalid input format\n");
@@ -199,7 +220,9 @@ std::vector<std::any> JSON::parseArray(const std::string &s, int &position) {
                 result.push_back(buf);
                 stateArray = 1;
                 continue;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+                throw std::logic_error("\nInvalid input format\n");
+            }
         }
         if (s[position] == '[') {
             if (stateArray == 0) {
@@ -207,7 +230,9 @@ std::vector<std::any> JSON::parseArray(const std::string &s, int &position) {
                 result.push_back(buf);
                 stateArray = 1;
                 continue;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+                throw std::logic_error("\nInvalid input format\n");
+            }
         }
         if (s[position] == '"') {
             if (stateArray == 0) {
@@ -215,13 +240,17 @@ std::vector<std::any> JSON::parseArray(const std::string &s, int &position) {
                 result.push_back(value);
                 stateArray = 1;
                 continue;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+                throw std::logic_error("\nInvalid input format\n");
+            }
         }
         if (s[position] == ',') {
             if (stateArray == 1) {
                 stateArray = 0;
                 continue;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+                throw std::logic_error("\nInvalid input format\n");
+            }
         }
         if (iswdigit(s[position])) {
             if (stateArray == 0) {
@@ -229,7 +258,9 @@ std::vector<std::any> JSON::parseArray(const std::string &s, int &position) {
                 result.push_back(value);
                 stateArray = 1;
                 continue;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+                throw std::logic_error("\nInvalid input format\n");
+            }
         }
         if (s[position] == 't' || s[position] == 'f') {
             if (stateArray == 0) {
@@ -237,7 +268,9 @@ std::vector<std::any> JSON::parseArray(const std::string &s, int &position) {
                 result.push_back(value);
                 stateArray = 1;
                 continue;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+                throw std::logic_error("\nInvalid input format\n");
+            }
         }
         if (s[position] == ']') {
             if (stateArray == 1 or stateArray == 0) {
@@ -274,5 +307,7 @@ void JSON::parseFile(const std::string &path) {
         parse(file, position);
         JSON_file.close();
         return;
-    } else throw std::logic_error("\nFile does not exist\n");
+	} else {
+        throw std::logic_error("\nFile does not exist\n");
+    }
 }
