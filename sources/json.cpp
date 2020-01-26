@@ -168,7 +168,7 @@ JSON::parseObject(const std::string &s, int &position) {
         if (s[position] == '}') {
             if (stateObject == 0 || stateObject == 3) {
                 return result;
-			} else {
+            } else {
                 throw std::logic_error("\nInvalid input format\n");
             }
         }
