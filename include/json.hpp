@@ -1,4 +1,4 @@
-
+// Copyright 2019 Fedorov james.sayfer2015@yandex.ru
 
 #ifndef json_hpp
 #define json_hpp
