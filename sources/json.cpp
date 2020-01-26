@@ -15,9 +15,9 @@ JSON::JSON(const std::string &s, int &position, bool isFile) {
 bool JSON::is_array() {
     if (array.empty()) {
         return false;
-    }
-    else {
-        return true;}
+    } else {
+        return true;
+	}
 }
 
 bool JSON::is_object() {
