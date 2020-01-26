@@ -1,7 +1,8 @@
 // Copyright 2019 Fedorov james.sayfer2015@yandex.ru
 
-#ifndef INCLUDE_JSON_HPP_
-#define INCLUDE_JSON_HPP_
+#ifndef INCLUDE_NLOHMANN_JSON_HPP_
+#define INCLUDE_NLOHMANN_JSON_HPP_
+
 
 #include <stdio.h>
 #include <iostream>
@@ -57,4 +58,4 @@ parseArray(const std::string &s, int &position);
 };
 
 
-#endif  // INCLUDE_JSON_HPP_
+#endif  // INCLUDE_NLOHMANN_JSON_HPP_
