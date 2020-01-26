@@ -31,8 +31,7 @@ bool JSON::is_object() {
 std::any &JSON::operator[](const std::string &key) {
     if (!is_object()) {
         throw std::logic_error("\nNot object\n");
-    }
-    else {
+    } else {
         return object[key];
     }
 }
@@ -70,8 +69,12 @@ bool JSON::parseBool(const std::string &s, int &position) {
                 if (s[position] == 'e') {
                     result = true;
                 } else isBool = false;
-            } else isBool = false;
-        } else isBool = false;
+            } else {
+                isBool = false;
+            }
+        } else {
+            isBool = false;
+        }
     } else {
         position += 1;
         if (s[position] == 'a') {
@@ -82,14 +85,24 @@ bool JSON::parseBool(const std::string &s, int &position) {
                     position += 1;
                     if (s[position] == 'e') {
                         result = false;
-                    } else isBool = false;
-                } else isBool = false;
-            } else isBool = false;
-        } else isBool = false;
+                    } else {
+                        isBool = false;
+                    }
+                } else {
+                    isBool = false;
+                }
+            } else {
+                isBool = false;
+            }
+        } else {
+            isBool = false;
+        }
     }
     if (isBool) {
         return result;
-    } else throw std::logic_error("\nInvalid input format\n");
+    } else {
+        throw std::logic_error("\nInvalid input format\n");
+    }
 }
 
 double JSON::parseNumber(const std::string &s, int &position) {
@@ -103,7 +116,9 @@ double JSON::parseNumber(const std::string &s, int &position) {
             if (s[position] == ' ' || s[position] == ',' || s[position] == ']' || s[position] == '}') {
                 position -= 1;
                 return stod(number);
-            } else throw std::logic_error("\nInvalid input format\n");
+            } else {
+                throw std::logic_error("\nInvalid input format\n");
+            }
         }
     }
     throw std::logic_error("\nInvalid input format\n");
@@ -167,7 +182,7 @@ std::map<std::string, std::any> JSON::parseObject(const std::string &s, int &pos
                 continue;
             } else {
             throw std::logic_error("\nInvalid input format\n");
-        }
+            }
         }
         if (s[position] == '[') {
             if (stateObject == 2) {
