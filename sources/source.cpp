@@ -1,6 +1,6 @@
 // Copyright 2019 Fedorov james.sayfer2015@yandex.ru
 
-#include "../include/json.hpp"
+#include "../include/nlohmann/json.hpp"
 
 JSON::JSON() = default;
 
