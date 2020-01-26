@@ -1,5 +1,5 @@
 // Copyright 2019 Fedorov james.sayfer2015@yandex.ru
-#include "json.hpp"
+#include "../include/nlohmann/json.hpp"
 #include <iostream>
 #include <string>
 
