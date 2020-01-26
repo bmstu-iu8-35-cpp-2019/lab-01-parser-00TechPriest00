@@ -58,4 +58,4 @@ parseArray(const std::string &s, int &position);
 };
 
 
-#endif  // INCLUDE_JSON_HPP_
+#endif  // INCLUDE_NLOHMANN_JSON_HPP_
