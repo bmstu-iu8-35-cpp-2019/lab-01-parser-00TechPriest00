@@ -10,7 +10,8 @@ TEST(Json, Operato_EQ){
 TEST(Json, Operato_EQ)
 {
 >>>>>>> f68bcc9e75661087c0679ca46998fd794d5f7e7e
-    std::string str1 = "{  \"lastname\" : \"Ivanov\", \"firstname\" : \"Ivan\", ";
+    std::string str1 = "{  \"lastname\" : \"Ivanov\",
+\"firstname\" : \"Ivan\", ";
     std::string str2 = "\"age\" : 25, \"islegal\" : false,";
     std::string str3 = "\"address\" : { \"city\" : \"Moscow\", \"street\" :";
     std::string str4 = "\"Vozdvijenka\"}, \"ad\":";
