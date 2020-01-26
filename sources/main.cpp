@@ -14,7 +14,8 @@ int main(){
 >>>>>>> f68bcc9e75661087c0679ca46998fd794d5f7e7e
     std::string str1 = "[[\"Si-9.15\", \"RTS-9.15\", \"GAZP-9.15\"], ";
     std::string str2 = "[100024, 100027, 100050],";
-    std::string str3 = "[\"Futures contract for USD / RUB\", \"Futures contract";
+    std::string str3 =
+"[\"Futures contract for USD / RUB\", \"Futures contract";
     std::string str4 = " for index RTS\", \"Futures contract";
     std::string str5 = " for Gazprom shares\"]]";
     std::string jjson = str1 + str2 + str3 + str4 + str5;
