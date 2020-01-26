@@ -115,7 +115,7 @@ double JSON::parseNumber(const std::string &s, int &position) {
         if (iswdigit(s[position])|| s[position] == '.') {
             number += s[position];
         } else {
-            if (s[position] == ' ' || s[position] == ',' 
+            if (s[position] == ' ' || s[position] == ','
                 || s[position] == ']' || s[position] == '}') {
                 position -= 1;
                 return stod(number);
@@ -127,7 +127,8 @@ double JSON::parseNumber(const std::string &s, int &position) {
     throw std::logic_error("\nInvalid input format\n");
 }
 
-std::map<std::string, std::any> JSON::parseObject(const std::string &s, int &position) {
+std::map<std::string, std::any>
+JSON::parseObject(const std::string &s, int &position) {
     std::map<std::string, std::any> result;
     std::any value;
     std::string key;
@@ -165,9 +166,11 @@ std::map<std::string, std::any> JSON::parseObject(const std::string &s, int &pos
         }
         }
         if (s[position] == '}') {
-            if (stateObject == 0 or stateObject == 3) {
+            if (stateObject == 0 || stateObject == 3) {
                 return result;
-            } else throw std::logic_error("\nInvalid input format\n");
+			} else {
+                throw std::logic_error("\nInvalid input format\n");
+            }
         }
         if (s[position] == ',') {
             if (stateObject == 3) {
@@ -291,7 +294,7 @@ std::vector<std::any> JSON::parseArray(const std::string &s, int &position) {
             }
         }
         if (s[position] == ']') {
-            if (stateArray == 1 or stateArray == 0) {
+            if (stateArray == 1 || stateArray == 0) {
                 return result;
             }
         }
