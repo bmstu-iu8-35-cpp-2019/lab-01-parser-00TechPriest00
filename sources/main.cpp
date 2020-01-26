@@ -1,9 +1,9 @@
 // Copyright 2019 Fedorov james.sayfer2015@yandex.ru
-#include "../include/json.hpp"
+#include "json.hpp"
 #include <iostream>
 #include <string>
 
-using json = json;
+using json = nlohmann::json;
 
 int main(){
     std::string str1 = "[[\"Si-9.15\", \"RTS-9.15\", \"GAZP-9.15\"], ";
