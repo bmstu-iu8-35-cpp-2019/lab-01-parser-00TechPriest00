@@ -1,7 +1,7 @@
 // Copyright 2019 Fedorov james.sayfer2015@yandex.ru
 
-#ifndef json_hpp
-#define json_hpp
+#ifndef INCLUDE_JSON_HPP_
+#define INCLUDE_JSON_HPP_
 
 #include <stdio.h>
 #include <iostream>
@@ -15,6 +15,7 @@
 class JSON {
     std::map<std::string, std::any> object;
     std::vector<std::any> array;
+
 public:
     JSON(); // Default constructor
 
@@ -41,10 +42,12 @@ public:
     static double parseNumber(const std::string &s, int &position);
 
     // Object processing
-    static std::map<std::string, std::any> parseObject(const std::string &s, int &position);
+    static std::map<std::string, std::any>
+parseObject(const std::string &s, int &position);
 
     // Array processing
-    static std::vector<std::any> parseArray(const std::string &s, int &position);
+    static std::vector<std::any>
+parseArray(const std::string &s, int &position);
 
     // Input line processing
     void parse(const std::string &s, int &position);
@@ -54,4 +57,4 @@ public:
 };
 
 
-#endif /* json_hpp */
+#endif  // INCLUDE_JSON_HPP_
