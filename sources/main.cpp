@@ -12,7 +12,10 @@ int main() {
             return 9;
         }
         position = 0;
-        JSON a("{\"lastname\" : \"Ivanov\", \"firstname\" : \"Ivan\",\"age\" : 25, \"islegal\" : false,\"marks\" : [    4, 5, 5, 5, 2, 3] , \"address\" : {\"city\" : \"Moscow\", \"street\" : \"Vozdvijenka\"}}",position, false);
+        JSON a("{\"lastname\" : \"Ivanov\", \"firstname\" : \"Ivan\",\
+\"age\" : 25, \"islegal\" : false,\"marks\" : [   4, 5, 5, 5, 2, 3] ,\
+\"address\" : {\"city\" : \"Moscow\", \"street\" : \
+\"Vozdvijenka\"}}",position, false);
         try {
             std::cout << std::any_cast<double>
 (std::any_cast<JSON>(a["marks"])[3]) << std::endl;
